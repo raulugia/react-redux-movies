@@ -1,5 +1,5 @@
 import axios from 'axios'
 
 export default axios.create({
-    baseURL: "https://img.omdbapi.com"
+    baseURL: "https://www.omdbapi.com/"
 })
