@@ -11,7 +11,7 @@ const MovieListing = () => {
     <div className="movie-wrapper">
       <div className="movie-list">
         <h2>Movies</h2>
-        <div className="container">
+        <div className="movie-container">
           {
             moviesReady && (
               movies.Search.map(movie => (
