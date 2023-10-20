@@ -1,5 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import user from '../../assets/user.png'
+import "./Header.scss"
 
 const Header = () => {
   return (
@@ -10,7 +12,7 @@ const Header = () => {
         </div>
       </Link>
       <div className="user-image">
-        <img src={"#"} alt="user" />
+        <img src={user} alt="user" />
       </div>
     </div>
   )
