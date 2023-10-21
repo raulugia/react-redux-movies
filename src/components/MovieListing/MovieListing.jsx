@@ -6,15 +6,30 @@ import "./MovieListing.scss"
 
 const MovieListing = () => {
   const movies = useSelector(state => state.movies)
-  const moviesReady = movies.Response === "True"
+  const series = useSelector(state => state.series)
+  
+  const moviesFetched = movies.Response === "True"
+  const seriesFetched = series.Response === "True"
   return (
     <div className="movie-wrapper">
       <div className="movie-list">
         <h2>Movies</h2>
         <div className="movie-container">
           {
-            moviesReady && (
+            moviesFetched && (
               movies.Search.map(movie => (
+                <MovieCard key={nanoid()} {...movie} />
+              ))
+            )
+          }
+        </div>
+      </div>
+      <div className="movie-list">
+        <h2>Series</h2>
+        <div className="movie-container">
+          {
+            seriesFetched && (
+              series.Search.map(movie => (
                 <MovieCard key={nanoid()} {...movie} />
               ))
             )
