@@ -39,15 +39,15 @@ export const fetchAsyncDetails = createAsyncThunk("series/fetchAsyncDetails", as
 const initialState = {
   movies: {},
   series: {},
-  details:{},
+  selectMovieOrShow: {},
 };
 
 export const moviesSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    addMovies: (state, action) => {
-      state.movies = action.payload;
+    removeSelectedMovieOrShow: (state) => {
+      state.selectMovieOrShow = {};
     },
   },
   extraReducers: {
@@ -65,9 +65,9 @@ export const moviesSlice = createSlice({
       console.log("fetched");
       return {...state, series: action.payload}
     },
-    [fetchAsyncDetails.fulfilled]: (state, action) => {
-      console.log("fetched");
-      return {...state, details: action.payload}
+    [fetchAsyncMovieOrShowDetail.fulfilled]: (state, { payload }) => {
+      console.log("Fetched Successfully!");
+      return { ...state, selectMovieOrShow: payload };
     },
   }
 });
